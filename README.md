@@ -4,6 +4,6 @@ Project 2
 
 Group members:
 
-Ada Lovelace adalovelace@csu.fullerton.edu
+William Bui wqbui3@csu.fullerton.edu
 
-Charles Babbage charlesbab@csu.fullerton.edu
+Thomas Ngo tngo0508@csu.fullerton.edu
