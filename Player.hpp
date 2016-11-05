@@ -22,7 +22,9 @@ public:
    // TO DO: implement this constructor
    Player(string name) {
       // TODO: implement this function properly
-      throw std::logic_error("not implemented yet");
+      //throw std::logic_error("not implemented yet");
+	   playerName = name;
+	   position = 0;
    }
    
    // copy constructor
@@ -30,14 +32,17 @@ public:
    // TO DO: implement Player's copy constructor
    Player(const Player &p) {
       // TODO: implement this function properly
-      throw std::logic_error("not implemented yet");
+      //throw std::logic_error("not implemented yet");
+	   playerName = p.playerName;
+	   position = p.position;
+	   die = p.die;
    }
    
    // assignment constructor
    // Player should make player's own copy of the die
    // TO DO: implement Player's assignment constructor
    Player& operator=(const Player& p);
-   
+	   
    // destructor
    ~Player() { }
    
