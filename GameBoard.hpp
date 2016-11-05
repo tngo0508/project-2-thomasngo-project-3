@@ -81,5 +81,5 @@ public:
 private:
    // TO DO: add storage for squares including square of chutes and ladders
    // Requirement: use ExtendableVector to store the square
-   ExtendableVector<int> ChutesBoard; 
+   ExtendableVector<int> squares; 
 };
