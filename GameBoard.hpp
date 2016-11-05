@@ -7,6 +7,8 @@
 #include <stdexcept>
 
 #include "ExtendableVector.h"
+#include <map>
+#include <iterator>
 
 const int OUTSIDE_BOARD = -1;
 const int BOARD_SIZE = 101;
@@ -35,32 +37,44 @@ public:
       if ((position < 0) || (position >= BOARD_SIZE)) {
          throw range_error("index out of bounds");
       }
-       else
-       {
-		  switch (position)
+      // TODO: implement this function properly
+      //throw std::logic_error("not implemented yet");
+	  else
+	  {
+		  map<int, int> check;
+		  //landing and new squares for ladders
+		  check[1] = 38;
+		  check[4] = 14;
+		  check[9] = 31;
+		  check[21] = 42;
+		  check[28] = 84;
+		  check[36] = 44;
+		  check[51] = 67;
+		  check[71] = 91;
+		  check[80] = 100;
+
+		  //landing and new squares for chutes
+		  check[1] = 38;
+		  check[4] = 14;
+		  check[9] = 31;
+		  check[21] = 42;
+		  check[28] = 84;
+		  check[36] = 44;
+		  check[51] = 67;
+		  check[71] = 91;
+		  check[80] = 100;
+
+		  map<int, int>::const_iterator iter;
+		  for (iter = check.begin(); iter != check.end(); iter++)
 		  {
-			// first, the ladders
-			case 1: return 38; break;
-			case 4: return 14; break; 
-			case 9: return 31; break; 
-			case 21: return 42; break;
-			case 28: return 84; break;
-			case 36: return 44; break;
-			case 51: return 67; break;
-			case 71: return 91; break;
-			case 80: return 100; break;
-			// now the chutes
-			case 16: return 6; break;
-			case 47: return 26; break;
-			case 49: return 11; break;
-			case 56: return 53; break;
-			case 62: return 19; break;
-			case 64: return 60; break;
-			case 87: return 24; break;
-			case 93: return 73; break;
-			case 95: return 75; break;
-			case 98: return 78; break;
+			  if (iter->first == position)
+			  {
+				  return iter->second;
+			  }
 		  }
+
+		  return position;
+
 	  }
    }
    
