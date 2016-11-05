@@ -15,14 +15,22 @@ using namespace std;
 // constructor with the default value of a minimum players
 ChutesAndLaddersGame::ChutesAndLaddersGame(int nPlayers) : winner("no winner") {
    // TODO: implement this function properly
-   throw std::logic_error("not implemented yet");
+   //throw std::logic_error("not implemented yet");
+	Player player1("Thomas");
+	Player player2("William");
+	players.enqueue(player1);
+	players.enqueue(player2);
 }
 
 // TODO: implement the destructor
 // destructor - dequeue players from the queue
 ChutesAndLaddersGame::~ChutesAndLaddersGame() {
    // TODO: implement this function properly
-   throw std::logic_error("not implemented yet");
+   //throw std::logic_error("not implemented yet");
+	for (int i = 0; i < players.size(); i++)
+	{
+		players.dequeue();
+	}
 }
 
 // TO DO: implement this function properly
@@ -31,7 +39,9 @@ ChutesAndLaddersGame::~ChutesAndLaddersGame() {
 //        Place all players at the figurative square zero
 void ChutesAndLaddersGame::resetGame() {
    // TODO: implement this function properly
-   throw std::logic_error("not implemented yet");
+   //throw std::logic_error("not implemented yet");
+	players.empty();
+	ChutesAndLaddersGame();
 }
 
 // TO DO: implement this function properly
