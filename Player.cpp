@@ -33,6 +33,6 @@ int Player::rollDieAndMove() {
 		return position;
 	}
 	else
-		return position = newPosition;
+		return newPosition;
 
 }
