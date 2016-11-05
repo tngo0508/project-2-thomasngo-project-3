@@ -28,7 +28,7 @@ int Player::rollDieAndMove() {
 	
 	die.roll();
 	int newPosition = position + die.getFaceValue();
-	if (newPosition > BOARD_SIZE)
+	if (newPosition >= BOARD_SIZE)
 	{
 		return position;
 	}
