@@ -56,6 +56,26 @@ void ChutesAndLaddersGame::resetGame() {
 //    - playGame returns after congratulating and printing the winner's name
 void ChutesAndLaddersGame::playGame() {
    // TODO: implement this function properly
-   throw std::logic_error("not implemented yet");
+   //throw std::logic_error("not implemented yet");
    
+	gameBoard.buildBoard();
+	
+	int newPosition = 0;
+	while (players.front().getPostion() != 100 )
+	{
+		Player player1 = players.front();
+		players.dequeue();
+		newPosition = gameBoard.checkChutesLadders(player1.rollDieAndMove());
+		player1.setPostion(newPosition);
+
+		Player player2 = players.front();
+		players.dequeue();
+		newPosition = gameBoard.checkChutesLadders(player2.rollDieAndMove());
+		player2.setPostion(newPosition);
+		
+		players.enqueue(player1);
+		players.enqueue(player2);
+		winner = players.front().getName();
+	}
+	cout << "Congratulation! Player " << winner << " win the game.\n";
 }
