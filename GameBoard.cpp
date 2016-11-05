@@ -1,5 +1,3 @@
-//william
-
 //
 //  GameBoard.cpp
 //
@@ -16,9 +14,9 @@
 void GameBoard::buildBoard() {
    // TODO: implement this function properly
    //throw std::logic_error("not implemented yet");
-   
+
    for (int i = 0; i < BOARD_SIZE; i++)
    {
-	   squares.insert(i, checkChutesLadders(i));
+	   squares.insert(i, checkChutesLadders(i+1));
    } 
 }
