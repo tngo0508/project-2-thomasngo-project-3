@@ -28,7 +28,7 @@ public:
    
    // accessors
    // TO DO: implement the accessor to get the number Of Players
-   long getNumberOfPlayers() {
+   int getNumberOfPlayers() {
       // TODO: implement this function properly
       //throw std::logic_error("not implemented yet");
 	   return players.size();
