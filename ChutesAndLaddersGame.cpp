@@ -16,10 +16,10 @@ using namespace std;
 ChutesAndLaddersGame::ChutesAndLaddersGame(int nPlayers) : winner("no winner") {
    // TODO: implement this function properly
    //throw std::logic_error("not implemented yet");
-	Player player1("Thomas");
-	Player player2("William");
-	players.enqueue(player1);
-	players.enqueue(player2);
+	Player newPlayer("William");
+	players.enqueue(newPlayer);
+	newPlayer.setName("Thomas");
+	players.enqueue(newPlayer);
 }
 
 // TODO: implement the destructor
@@ -27,7 +27,7 @@ ChutesAndLaddersGame::ChutesAndLaddersGame(int nPlayers) : winner("no winner") {
 ChutesAndLaddersGame::~ChutesAndLaddersGame() {
    // TODO: implement this function properly
    //throw std::logic_error("not implemented yet");
-	for (int i = 0; i < players.size(); i++)
+	for (int i = 0; i < MIN_NUMBER_OF_PLAYERS; i++)
 	{
 		players.dequeue();
 	}
@@ -40,15 +40,8 @@ ChutesAndLaddersGame::~ChutesAndLaddersGame() {
 void ChutesAndLaddersGame::resetGame() {
    // TODO: implement this function properly
    //throw std::logic_error("not implemented yet");
-	Player temp = players.front();
-	temp.setPostion(0);
-	players.dequeue();
-	players.enqueue(temp);
-	temp = players.front();
-	temp.setPostion(0);
-	players.dequeue();
-	players.enqueue(temp);
-	winner = "no name";
+
+
 }
 
 // TO DO: implement this function properly
