@@ -16,10 +16,10 @@ using namespace std;
 ChutesAndLaddersGame::ChutesAndLaddersGame(int nPlayers) : winner("no winner") {
    // TODO: implement this function properly
    //throw std::logic_error("not implemented yet");
-	Player player1("Thomas");
-	Player player2("William");
-	players.enqueue(player1);
-	players.enqueue(player2);
+	Player newPlayer("William");
+	players.enqueue(newPlayer);
+	newPlayer.setName("Thomas");
+	players.enqueue(newPlayer);
 }
 
 // TODO: implement the destructor
@@ -27,7 +27,7 @@ ChutesAndLaddersGame::ChutesAndLaddersGame(int nPlayers) : winner("no winner") {
 ChutesAndLaddersGame::~ChutesAndLaddersGame() {
    // TODO: implement this function properly
    //throw std::logic_error("not implemented yet");
-	for (int i = 0; i < players.size(); i++)
+	for (int i = 0; i < MIN_NUMBER_OF_PLAYERS; i++)
 	{
 		players.dequeue();
 	}
@@ -40,8 +40,8 @@ ChutesAndLaddersGame::~ChutesAndLaddersGame() {
 void ChutesAndLaddersGame::resetGame() {
    // TODO: implement this function properly
    //throw std::logic_error("not implemented yet");
-	players.empty();
-	ChutesAndLaddersGame();
+
+
 }
 
 // TO DO: implement this function properly
@@ -57,25 +57,34 @@ void ChutesAndLaddersGame::resetGame() {
 void ChutesAndLaddersGame::playGame() {
    // TODO: implement this function properly
    //throw std::logic_error("not implemented yet");
-   
-	gameBoard.buildBoard();
 	
+	bool found = false;
 	int newPosition = 0;
-	while (players.front().getPostion() != 100 )
+	Player player1, player2;
+	while (!found)
 	{
-		Player player1 = players.front();
+		player1 = players.front();
 		players.dequeue();
 		newPosition = gameBoard.checkChutesLadders(player1.rollDieAndMove());
 		player1.setPostion(newPosition);
-
-		Player player2 = players.front();
+		if (player1.getPostion() == WINNING_POSITION)
+		{
+			winner = player1.getName();
+			found = true;
+		}
+		players.enqueue(player1);
+		
+		player2 = players.front();
 		players.dequeue();
 		newPosition = gameBoard.checkChutesLadders(player2.rollDieAndMove());
 		player2.setPostion(newPosition);
-		
-		players.enqueue(player1);
+		if (player2.getPostion() == WINNING_POSITION)
+		{
+			winner = player2.getName();
+			found = true;
+		}
 		players.enqueue(player2);
-		winner = players.front().getName();
 	}
 	cout << "Congratulation! Player " << winner << " win the game.\n";
 }
+

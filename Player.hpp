@@ -36,6 +36,8 @@ public:
 	   playerName = p.playerName;
 	   position = p.position;
 	   die = p.die;
+
+
    }
    
    // assignment constructor
