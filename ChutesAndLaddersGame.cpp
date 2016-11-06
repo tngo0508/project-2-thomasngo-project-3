@@ -14,8 +14,8 @@ using namespace std;
 // TODO: implement the constructor with all your team members
 // constructor with the default value of a minimum players
 ChutesAndLaddersGame::ChutesAndLaddersGame(int nPlayers) : winner("no winner") {
-   // TODO: implement this function properly
-   //throw std::logic_error("not implemented yet");
+	// TODO: implement this function properly
+	//throw std::logic_error("not implemented yet");
 	Player newPlayer("William");
 	players.enqueue(newPlayer);
 	newPlayer.setName("Thomas");
@@ -25,8 +25,8 @@ ChutesAndLaddersGame::ChutesAndLaddersGame(int nPlayers) : winner("no winner") {
 // TODO: implement the destructor
 // destructor - dequeue players from the queue
 ChutesAndLaddersGame::~ChutesAndLaddersGame() {
-   // TODO: implement this function properly
-   //throw std::logic_error("not implemented yet");
+	// TODO: implement this function properly
+	//throw std::logic_error("not implemented yet");
 	for (int i = 0; i < MIN_NUMBER_OF_PLAYERS; i++)
 	{
 		players.dequeue();
@@ -38,9 +38,16 @@ ChutesAndLaddersGame::~ChutesAndLaddersGame() {
 //        (i.e., the list should be the same as in the constructor).
 //        Place all players at the figurative square zero
 void ChutesAndLaddersGame::resetGame() {
-   // TODO: implement this function properly
-   //throw std::logic_error("not implemented yet");
+	// TODO: implement this function properly
+	//throw std::logic_error("not implemented yet");
 
+	Player newPlayer("William");
+	players.enqueue(newPlayer);
+	newPlayer.setName("Thomas");
+	players.enqueue(newPlayer);
+	players.dequeue();
+	players.dequeue();
+	winner = "no winner";
 
 }
 
@@ -55,9 +62,9 @@ void ChutesAndLaddersGame::resetGame() {
 //    - If player lands on the winning square 100, game is over
 //    - playGame returns after congratulating and printing the winner's name
 void ChutesAndLaddersGame::playGame() {
-   // TODO: implement this function properly
-   //throw std::logic_error("not implemented yet");
-	
+	// TODO: implement this function properly
+	//throw std::logic_error("not implemented yet");
+
 	bool found = false;
 	int newPosition = 0;
 	Player player1, player2;
@@ -67,18 +74,18 @@ void ChutesAndLaddersGame::playGame() {
 		players.dequeue();
 		newPosition = gameBoard.checkChutesLadders(player1.rollDieAndMove());
 		player1.setPostion(newPosition);
-		if (player1.getPostion() == WINNING_POSITION)
+		if (!found && player1.getPostion() == WINNING_POSITION)
 		{
 			winner = player1.getName();
 			found = true;
 		}
 		players.enqueue(player1);
-		
+
 		player2 = players.front();
 		players.dequeue();
 		newPosition = gameBoard.checkChutesLadders(player2.rollDieAndMove());
 		player2.setPostion(newPosition);
-		if (player2.getPostion() == WINNING_POSITION)
+		if (!found && player2.getPostion() == WINNING_POSITION)
 		{
 			winner = player2.getName();
 			found = true;
