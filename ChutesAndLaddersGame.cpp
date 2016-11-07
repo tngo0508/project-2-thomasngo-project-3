@@ -62,8 +62,8 @@ void ChutesAndLaddersGame::playGame() {
 	Player player1, player2;
 	while (!found)
 	{
-		player1 = players.front();
-		players.dequeue();
+		player1 = playerList.front();
+		playerList.dequeue();
 		newPosition = gameBoard.checkChutesLadders(player1.rollDieAndMove());
 		player1.setPostion(newPosition);
 		if (!found && player1.getPostion() == WINNING_POSITION)
@@ -71,10 +71,10 @@ void ChutesAndLaddersGame::playGame() {
 			winner = player1.getName();
 			found = true;
 		}
-		players.enqueue(player1);
+		playerList.enqueue(player1);
 
-		player2 = players.front();
-		players.dequeue();
+		player2 = playerList.front();
+		playerList.dequeue();
 		newPosition = gameBoard.checkChutesLadders(player2.rollDieAndMove());
 		player2.setPostion(newPosition);
 		if (!found && player2.getPostion() == WINNING_POSITION)
@@ -82,7 +82,7 @@ void ChutesAndLaddersGame::playGame() {
 			winner = player2.getName();
 			found = true;
 		}
-		players.enqueue(player2);
+		playerList.enqueue(player2);
 	}
 	cout << "Congratulation! Player " << winner << " win the game.\n";
 }
