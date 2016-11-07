@@ -26,7 +26,6 @@ ChutesAndLaddersGame::~ChutesAndLaddersGame() {
 		playerList.dequeue();
 	}
 }
-
 // TO DO: implement this function properly
 // reset the game - rebuild the list of players
 //        (i.e., the list should be the same as in the constructor).
