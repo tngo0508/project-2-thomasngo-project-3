@@ -15,9 +15,9 @@ Player& Player::operator=(const Player& p) {
 }
 
 int Player::rollDieAndMove() {
-	die.roll();
+	this->die.roll();
 	int newPosition = position + die.getFaceValue();
-	if (newPosition >= (BOARD_SIZE - 1))
+	if (newPosition > (BOARD_SIZE - 1))
 	{
 		return position;
 	}
