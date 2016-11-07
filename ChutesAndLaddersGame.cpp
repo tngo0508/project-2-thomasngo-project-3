@@ -16,11 +16,8 @@ ChutesAndLaddersGame::ChutesAndLaddersGame(int nPlayers) : winner("no winner") {
 	
 	Player newPlayer("William");
 	playerList.enqueue(newPlayer);
-	/*newPlayer.setName("Thomas");
-	playerList.enqueue(newPlayer);*/
-
-	Player newPlayer1("Thomas");
-	playerList.enqueue(newPlayer1);
+	newPlayer.setName("Thomas");
+	playerList.enqueue(newPlayer);
 }
 
 // destructor - dequeue players from the queue
