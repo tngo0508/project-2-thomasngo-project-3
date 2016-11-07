@@ -11,28 +11,21 @@
 
 using namespace std;
 
-// TODO: implement the constructor with all your team members
 // constructor with the default value of a minimum players
 ChutesAndLaddersGame::ChutesAndLaddersGame(int nPlayers) : winner("no winner") {
-	// TODO: implement this function properly
-	//throw std::logic_error("not implemented yet");
 	Player newPlayer("William");
-	players.enqueue(newPlayer);
+	playerList.enqueue(newPlayer);
 	newPlayer.setName("Thomas");
-	players.enqueue(newPlayer);
+	playerList.enqueue(newPlayer);
 }
 
-// TODO: implement the destructor
 // destructor - dequeue players from the queue
 ChutesAndLaddersGame::~ChutesAndLaddersGame() {
-	// TODO: implement this function properly
-	//throw std::logic_error("not implemented yet");
-	for (int i = 0; i < MIN_NUMBER_OF_PLAYERS; i++)
+	while (!playerList.empty())
 	{
-		players.dequeue();
+		playerList.dequeue();
 	}
 }
-
 // TO DO: implement this function properly
 // reset the game - rebuild the list of players
 //        (i.e., the list should be the same as in the constructor).
