@@ -41,14 +41,6 @@ void ChutesAndLaddersGame::resetGame() {
 	// TODO: implement this function properly
 	//throw std::logic_error("not implemented yet");
 
-	Player newPlayer("William");
-	players.enqueue(newPlayer);
-	newPlayer.setName("Thomas");
-	players.enqueue(newPlayer);
-	players.dequeue();
-	players.dequeue();
-	winner = "no winner";
-
 }
 
 // TO DO: implement this function properly
