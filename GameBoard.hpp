@@ -32,8 +32,8 @@ public:
 		}
 		else
 		{
-			map<int, int> check;
 			//landing and new squares for ladders
+			
 			check[1] = 38;
 			check[4] = 14;
 			check[9] = 31;
@@ -45,6 +45,7 @@ public:
 			check[80] = 100;
 
 			//landing and new squares for chutes
+
 			check[16] = 6;
 			check[47] = 26;
 			check[49] = 11;
@@ -56,12 +57,11 @@ public:
 			check[95] = 75;
 			check[98] = 78;
 
-			map<int, int>::const_iterator iter;
-			for (iter = check.begin(); iter != check.end(); iter++)
+			for (map<int, int>::const_iterator iter = check.begin(); iter != check.end(); iter++)
 			{
 				if (iter->first == position)
 				{
-					return iter->second;
+					position = iter->second;
 				}
 			}
 			return position;
@@ -70,4 +70,5 @@ public:
 
 private:
 	ExtendableVector<int> squares;
+	map<int, int> check;
 };
